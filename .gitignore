@@ -1,0 +1,7 @@
+# Ignore any data and log files
+
+*.dat
+*.vtk
+*.csv
+*.out
+*log*
