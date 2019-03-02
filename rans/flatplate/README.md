@@ -34,17 +34,26 @@ The results for the mesh refinement study are presented and compared to results 
 
 ### SA
 
+For the SA turbulence model, we see the following behavior compared to CFL3D and FUN3D
+
 ![SA_cd_convergence](images/cd_convergence_flatplate_SA.png)
 Figure (2): Mesh convergence of C_D for different solvers
+
 ![SA_cf_convergence](images/cf_convergence_flatplate_SA.png)
 Figure (3): Mesh convergence of C_f at x = 0.97 for different solvers
+
 ![SA_cf](images/cf_flatplate_SA.png)
 Figure (4): C_f plot for the finest mesh for different solvers
 
+
+
 ### SST
+For the SST turbulence model, we see the following behavior compared to CFL3D and FUN3D
 ![SST_cd_convergence](images/cd_convergence_flatplate_SST.png)
 Figure (2): Mesh convergence of C_D for different solvers
+
 ![SST_cf_convergence](images/cf_convergence_flatplate_SST.png)
 Figure (3): Mesh convergence of C_f at x = 0.97 for different solvers
+
 ![SST_cf](images/cf_flatplate_SST.png)
 Figure (4): C_f plot for the finest mesh for different solvers
