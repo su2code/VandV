@@ -25,9 +25,11 @@ Structured meshes of uniformly increasing density are used to perform a grid con
 5. 1025  - 1060864 quadrilaterals
 
 ![dsma661 bcs](images/dsma661_bc.png)
+
 Figure (1): Boundary conditions for the case
 
 ![dsma661 mesh](images/dsma661_mesh.png)
+
 Figure (2): Mesh with 257 points on the airfoil
 
 Different formats of this family of meshes can be found at the [NASA Turbulence Modelling Resource page](https://turbmodels.larc.nasa.gov/airfoilwakeverif500c.html). 
