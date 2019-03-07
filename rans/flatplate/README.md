@@ -1,12 +1,12 @@
 # Zero Pressure Gradient Flat Plate
 
-The Zero Pressure Gradient Flat Plate case is defined [here](https://turbmodels.larc.nasa.gov/flatplate.html). 
+The details of the Zero Pressure Gradient Flat Plate case are taken from the [NASA TMR website](https://turbmodels.larc.nasa.gov/flatplate.html). 
 
 ## Problem Setup
 
 Turbulent flow over a zero pressure gradient flat plate is a common test case for the verification of turbulence models in CFD solvers. The flow is everywhere turbulent and a boundary layer develops over the surface of the flat plate. The lack of separation or other more complex flow phenomena allows turbulence models to predict the flow with a high level of accuracy.
 
-This problem will solve the flow past the airfoil with these conditions:
+This problem will solve the flow past the flatplate with these conditions:
 - Freestream Temperature = 300 K
 - Freestream Mach number = 0.2
 - Reynolds number = 5.0E6
@@ -34,7 +34,9 @@ The results for the mesh refinement study are presented and compared to results 
 
 ### SA
 
-For the SA turbulence model, we see the following behavior compared to CFL3D and FUN3D
+For the SA turbulence model, we see the following behavior compared to CFL3D and FUN3D.
+
+The following plots show mesh convergence properties of C_D and C_f at x = 0.97.
 
 ![SA_cd_convergence](images/cd_convergence_flatplate_SA.png)
 Figure (2): Mesh convergence of C_D for different solvers
@@ -42,18 +44,27 @@ Figure (2): Mesh convergence of C_D for different solvers
 ![SA_cf_convergence](images/cf_convergence_flatplate_SA.png)
 Figure (3): Mesh convergence of C_f at x = 0.97 for different solvers
 
+The following plot shows the coefficient of friction along the flat plate as calculated on the finest mesh. All three solvers predict identical distributions, which is why is looks like one line. 
+
 ![SA_cf](images/cf_flatplate_SA.png)
 Figure (4): C_f plot for the finest mesh for different solvers
 
 
 
 ### SST
-For the SST turbulence model, we see the following behavior compared to CFL3D and FUN3D
+
+For the SST turbulence model, we see the following behavior compared to CFL3D and FUN3D. 
+
+The following plots show mesh convergence properties of C_D and C_f at x = 0.97.
+
 ![SST_cd_convergence](images/cd_convergence_flatplate_SST.png)
 Figure (2): Mesh convergence of C_D for different solvers
 
 ![SST_cf_convergence](images/cf_convergence_flatplate_SST.png)
 Figure (3): Mesh convergence of C_f at x = 0.97 for different solvers
+
+
+The following plot shows the coefficient of friction along the flat plate as calculated on the finest mesh. All three solvers predict identical distributions, which is why is looks like one line. 
 
 ![SST_cf](images/cf_flatplate_SST.png)
 Figure (4): C_f plot for the finest mesh for different solvers
