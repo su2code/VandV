@@ -44,21 +44,7 @@ For the SA turbulence model, we see the following behavior compared to CFL3D and
 The following plots show the mesh convergence for force coefficients: 
 
 ![SA_force_convergence](images/force_convergence_dsma661_SA.png)
-Figure (3): Mesh convergence of C_L for different solvers
-
-![SA_cl_convergence](images/cl_convergence_dsma661_SA.png)
-Figure (3): Mesh convergence of C_L for different solvers
-
-![SA_cd_convergence](images/cd_convergence_dsma661_SA.png)
-Figure (4): Mesh convergence of C_D for different solvers
-
-![SA_cd_convergence](images/cdp_convergence_dsma661_SA.png)
-Figure (5): Mesh convergence of pressure component of C_D for different solvers
-
-![SA_cd_convergence](images/cdv_convergence_dsma661_SA.png)
-Figure (6): Mesh convergence of viscous component of C_D for different solvers
-
-
+Figure (3): Mesh convergence of force coefficients for different solvers
 
 ### SST
 
@@ -67,17 +53,6 @@ For the SST turbulence model, we see the following behavior compared to CFL3D an
 The following plots show the mesh convergence for force coefficients: 
 
 ![SST_force_convergence](images/force_convergence_dsma661_SST.png)
-Figure (3): Mesh convergence of C_L for different solvers
+Figure (3): Mesh convergence of force coefficients for different solvers
 
-![SST_cl_convergence](images/cl_convergence_dsma661_SST.png)
-Figure (7): Mesh convergence of C_L for different solvers
-
-![SST_cd_convergence](images/cd_convergence_dsma661_SST.png)
-Figure (8): Mesh convergence of C_D for different solvers
-
-![SST_cd_convergence](images/cdp_convergence_dsma661_SST.png)
-Figure (9): Mesh convergence of pressure component of C_D for different solvers
-
-![SST_cd_convergence](images/cdv_convergence_dsma661_SST.png)
-Figure (10): Mesh convergence of viscous component of C_D for different solvers
 
