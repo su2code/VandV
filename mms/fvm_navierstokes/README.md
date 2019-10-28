@@ -10,7 +10,7 @@ The basic concept behind the Method of Manufactured Solutions (MMS) is to verify
 
 The 2D manufactured solution used in this case for the compressible Navier-Stokes equations is given by:
 
-![NS MMS](images/ns_mms.png)
+<img src="images/ns_mms.png" alt="NS MMS" width="200"/>
 
 which will be solved on a unit quad domain. Contours of the solution are shown below.
 
@@ -24,15 +24,15 @@ A symbolic manipulation package such as Maple or SymPy is used to generate the r
 
 The results for solving the 2D MMS problem on a sequence of 5 grids are given below. The unit domain meshes are composed of quadrilaterals (triangles are also possible), and the mesh sizes are 9x9, 17x17, 33x33, 65x65, 129x129, and 257x257. 
 
-Several variations of the numerical methods are tested, namely the Roe upwind scheme with and without limiters, the JST scheme, and both the Green-Gauss and weighted least-squares approached for computing flow variable gradients. In the figures, the abbreviations represent the following: Roe = Roe MUSCL, JST = Jameson-Schmidt-Turkel, GG = Green-Gauss, LIM = Venkatakrishnan-Wang limiter, WLS = Weighted Least-Squares.
+Several variations of the numerical methods are tested, namely the Roe upwind scheme with and without limiters, the JST scheme, and both the Green-Gauss and weighted least-squares approaches for computing flow variable gradients. In the figures, the abbreviations represent the following: Roe = Roe uwpind scheme with 2nd-order MUSCL reconstruction, JST = Jameson-Schmidt-Turkel centered scheme, GG = Green-Gauss gradient method, LIM = Venkatakrishnan-Wang limiter, WLS = Weighted Least-Squares gradient method.
 
-Figures containing the formal order of accuracy and the global error for both L-infinity and L2 norms are shown. The figures with the global error present the slopes for first- and second-order accuracy. As expected for the finite volume solver in SU2, all results asymptote to second-order accuracy as the mesh is refined.
+Figures containing the formal order of accuracy and the global error for both L-infinity and L2 norms are shown below. The figures with the global error also present the ideal slopes for first- and second-order accuracy. As expected for the finite volume solver in SU2, all results correctly asymptote to second-order accuracy as the mesh is refined, which verifies the accuracy of the solver for the methods investigated.
 
 If you would like to run the MMS problems for yourself, you can use the files available in the [SU2 V&V repository](https://github.com/su2code/VandV/tree/master/mms/fvm_navierstokes). The compute_order_of_accuracy.py script drives the other files in this folder. Simply set the number of ranks on which to run the cases by modifying the 'nRank' variable at the top of the script and then execute with:
 
 $ compute_order_of_accuracy.py
 
-The script will automatically generate the required meshes and executed SU2 solutions for up to four different cases on those meshes for comparison. Four config files are provided, but you can modify them or add new ones. Simply change the config files listed at the top of the compute_order_of_accuracy.py script. Postprocessing is also automatically performed by the script, including the creation of figures for global error vs relative grid size and observed order of accuracy vs relative grid size.
+The script will automatically generate the required meshes and execute SU2 solutions for the four different cases on those meshes for comparison. Four config files are provided, but you can modify them or add new ones. Simply change the config files listed at the top of the compute_order_of_accuracy.py script. Postprocessing is also automatically performed by the script, including the creation of figures for global error vs relative grid size and observed order of accuracy vs relative grid size.
 
 ![Slope RMS Density](images/slope_rms_rho.png)
 ![Slope RMS Rho-U](images/slope_rms_rhou.png)
