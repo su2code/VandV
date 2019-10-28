@@ -39,23 +39,20 @@ $ compute_order_of_accuracy.py
 The script will automatically generate the required meshes and execute SU2 solutions for the four different cases on those meshes for comparison. Four config files are provided, but you can modify them or add new ones. Simply change the config files listed at the top of the compute_order_of_accuracy.py script. Postprocessing is also automatically performed by the script, including the creation of figures for global error vs relative grid size and observed order of accuracy vs relative grid size.
 
 <p align="center">
-<img src="images/slope_rms_rho.png" alt="Slope RMS Density" width="435"/>
-<img src="images/accuracy_rms_rho.png" alt="Accuracy RMS Density" width="435"/>
+<img src="images/slope_rms_rho.png" alt="Slope RMS Rho" width="435"/>
+<img src="images/accuracy_rms_rho.png" alt="Accuracy RMS Rho" width="435"/>
+<img src="images/slope_rms_rhou.png" alt="Slope RMS Rho-U" width="435"/>
+<img src="images/accuracy_rms_rhou.png" alt="Accuracy RMS Rho-U" width="435"/>
+<img src="images/slope_rms_rhov.png" alt="Slope RMS Rho-V" width="435"/>
+<img src="images/accuracy_rms_rhov.png" alt="Accuracy RMS Rho-V" width="435"/>
+<img src="images/slope_rms_rhoe.png" alt="Slope RMS Rho-E" width="435"/>
+<img src="images/accuracy_rms_rhoe.png" alt="Accuracy RMS Rho-E" width="435"/>
+<img src="images/slope_max_rho.png" alt="Slope Max Rho" width="435"/>
+<img src="images/accuracy_max_rho.png" alt="Accuracy Max Rho" width="435"/>
+<img src="images/slope_max_rhou.png" alt="Slope Max Rho-U" width="435"/>
+<img src="images/accuracy_max_rhou.png" alt="Accuracy Max Rho-U" width="435"/>
+<img src="images/slope_max_rhov.png" alt="Slope Max Rho-V" width="435"/>
+<img src="images/accuracy_max_rhov.png" alt="Accuracy Max Rho-V" width="435"/>
+<img src="images/slope_max_rhoe.png" alt="Slope Max Rho-E" width="435"/>
+<img src="images/accuracy_max_rhoe.png" alt="Accuracy Max Rho-E" width="435"/>
 </p>
-
-![Slope RMS Rho-U](images/slope_rms_rhou.png)
-![Slope RMS Rho-V](images/slope_rms_rhov.png)
-![Slope RMS Rho-E](images/slope_rms_rhoe.png)
-![Accuracy RMS Rho-U](images/accuracy_rms_rhou.png)
-![Accuracy RMS Rho-V](images/accuracy_rms_rhov.png)
-![Accuracy RMS Rho-E](images/accuracy_rms_rhoe.png)
-
-![Slope Max Density](images/slope_max_rho.png)
-![Slope Max Rho-U](images/slope_max_rhou.png)
-![Slope Max Rho-V](images/slope_max_rhov.png)
-![Slope Max Rho-E](images/slope_max_rhoe.png)
-![Accuracy Max Density](images/accuracy_max_rho.png)
-![Accuracy Max Rho-U](images/accuracy_max_rhou.png)
-![Accuracy Max Rho-V](images/accuracy_max_rhov.png)
-![Accuracy Max Rho-E](images/accuracy_max_rhoe.png)
-
