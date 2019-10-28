@@ -16,9 +16,11 @@ The 2D manufactured solution used in this case for the compressible Navier-Stoke
 
 which will be solved on a unit quad domain. Contours of the solution are shown below.
 
-<img src="images/ns_mms_density.png" alt="NS MMS Density" width="500"/>
-<img src="images/ns_mms_pressure.png" alt="NS MMS Pressure" width="500"/>
-<img src="images/ns_mms_mach.png" alt="NS MMS Mach" width="500"/>
+<p align="center">
+<img src="images/ns_mms_density.png" alt="NS MMS Density" width="200"/>
+<img src="images/ns_mms_pressure.png" alt="NS MMS Pressure" width="200"/>
+<img src="images/ns_mms_mach.png" alt="NS MMS Mach" width="200"/>
+</p>
 
 A symbolic manipulation package such as Maple or SymPy is used to generate the required source terms automatically by evaluating the governing equations at the manufactured solution.
 
