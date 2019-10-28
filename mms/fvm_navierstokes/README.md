@@ -39,8 +39,8 @@ $ compute_order_of_accuracy.py
 The script will automatically generate the required meshes and execute SU2 solutions for the four different cases on those meshes for comparison. Four config files are provided, but you can modify them or add new ones. Simply change the config files listed at the top of the compute_order_of_accuracy.py script. Postprocessing is also automatically performed by the script, including the creation of figures for global error vs relative grid size and observed order of accuracy vs relative grid size.
 
 <p align="center">
-<img src="images/slope_rms_rho.png" alt="Slope RMS Density" width="440"/>
-<img src="images/accuracy_rms_rho.png" alt="Accuracy RMS Density" width="440"/>
+<img src="images/slope_rms_rho.png" alt="Slope RMS Density" width="435"/>
+<img src="images/accuracy_rms_rho.png" alt="Accuracy RMS Density" width="435"/>
 </p>
 
 ![Slope RMS Rho-U](images/slope_rms_rhou.png)
