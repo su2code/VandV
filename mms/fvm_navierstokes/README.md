@@ -10,13 +10,13 @@ The basic concept behind the Method of Manufactured Solutions (MMS) is to verify
 
 The 2D manufactured solution used in this case for the compressible Navier-Stokes equations is given by:
 
-<img src="images/ns_mms.png" alt="NS MMS" width="200"/>
+<img src="images/ns_mms.png" alt="NS MMS" width="500"/>
 
 which will be solved on a unit quad domain. Contours of the solution are shown below.
 
-![NS MMS Density](images/ns_mms_density.png)
-![NS MMS Pressure](images/ns_mms_pressure.png)
-![NS MMS Mach](images/ns_mms_mach.png)
+<img src="mages/ns_mms_density.png" alt="NS MMS Density" width="500"/>
+<img src="images/ns_mms_pressure.png" alt="NS MMS Pressure" width="500"/>
+<img src="images/ns_mms_mach.png" alt="NS MMS Mach" width="500"/>
 
 A symbolic manipulation package such as Maple or SymPy is used to generate the required source terms automatically by evaluating the governing equations at the manufactured solution.
 
