@@ -2,6 +2,8 @@
 
 The details of the Zero Pressure Gradient Flat Plate case are taken from the [NASA TMR website](https://turbmodels.larc.nasa.gov/flatplate.html). 
 
+By comparing the SU2 results of the flat plate case against CFL3D and FUN3D on a sequence of refined grids and seeing agreement of key quantities, we can build a high degree of confidence that the SA and SST models are implemented correctly. Therefore, the goal of this case is to verify the implementations of the SA and SST models in SU2.
+
 ## Problem Setup
 
 Turbulent flow over a zero pressure gradient flat plate is a common test case for the verification of turbulence models in CFD solvers. The flow is everywhere turbulent and a boundary layer develops over the surface of the flat plate. The lack of separation or other more complex flow phenomena allows turbulence models to predict the flow with a high level of accuracy.
@@ -12,11 +14,11 @@ This problem will solve the flow past the flatplate with these conditions:
 - Reynolds number = 5.0E6
 - Reynolds length = 1.0 m
 
-The length of the flat plate is 2 meters, and it is represented by an adiabatic no-slip wall boundary condition. Also part of the domain is a symmetry plane located before the leading edge of the flat plate. Inlet and outlet boundary conditions are used on the left and right boundaries of the domain, and an outlet boundary condition is used over the top region of the domain, which is located 1 meter away from the flat plate.
+The length of the flat plate is 2 meters, and it is represented by an adiabatic no-slip wall boundary condition. Also part of the domain is a symmetry plane located before the leading edge of the flat plate. Inlet and outlet boundary conditions are used on the left and right boundaries of the domain, and a far-field boundary condition is used over the top region of the domain, which is located 1 meter away from the flat plate. All other fluid and boundary conditions are applied as prescribed on the NASA TMR website.
 
 ## Mesh Description
 
-Structured meshes of increasing density are used to perform a grid convergence study. These meshes are present in the subfolders that are named according to the number of vertices in the x and y directions. The mesh sizes are: 
+Structured meshes of increasing density are used to perform a grid convergence study. The meshes are identical to those found on the [NASA TMR website](https://turbmodels.larc.nasa.gov/flatplate_grids.html) for this case after converting to native SU2 ASCII mesh format. These meshes are named according to the number of vertices in the x and y directions, respectively. The mesh sizes are: 
 
 1. 35x25   - 816 quadrilaterals
 2. 69x49   - 3264 quadrilaterals
@@ -25,14 +27,16 @@ Structured meshes of increasing density are used to perform a grid convergence s
 5. 545x385 - 208896 quadrilaterals
 
 ![Turb Plate Mesh](images/turb_plate_mesh_bcs.png)
-Figure (1): Mesh with boundary conditions: inlet (red), outlet (blue), symmetry (purple), wall (green).
+Figure (1): Mesh with boundary conditions: inlet (red), outlet (blue), far-field (orange), symmetry (purple), wall (green).
 
-Different formats of this family of meshes can be found at the [NASA Turbulence Modelling Resource page](https://turbmodels.larc.nasa.gov/flatplate.html). 
+If you would like to run the flat plate problems for yourself, you can use the files available in the [SU2 V&V repository](https://github.com/su2code/VandV/tree/master/rans/flatplate). Configuration files for both the SA and SST cases, as well as all grids in SU2 format, are provided.
 
 ## Results
-The results for the mesh refinement study are presented and compared to results from FUN3D and CFL3D. Results are presented for the SA and SST turbulence models 
+The results for the mesh refinement study are presented and compared to results from FUN3D and CFL3D, including results for both the SA and SST turbulence models.
 
-### SA
+We will compare the convergence of the drag coefficient on the flat plate with grid refinement, as well as the value of the skin friction coefficient at one point on the plate (x = 0.97). We also show the skin friction coefficient plotted along the length of the plate. All cases were converged until the density residual was reduced to 10<sup>-13</sup>, which is demonstrated by a figure containing residual convergence histories for each mesh.
+
+### SA Model
 
 For the SA turbulence model, we see the following behavior compared to CFL3D and FUN3D.
 
@@ -50,8 +54,7 @@ The following plot shows the coefficient of friction along the flat plate as cal
 Figure (4): C_f plot for the finest mesh for different solvers
 
 
-
-### SST
+### SST Model
 
 For the SST turbulence model, we see the following behavior compared to CFL3D and FUN3D. 
 
