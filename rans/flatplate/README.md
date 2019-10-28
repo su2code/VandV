@@ -29,45 +29,30 @@ Structured meshes of increasing density are used to perform a grid convergence s
 ![Turb Plate Mesh](images/turb_plate_mesh_bcs.png)
 Figure (1): Mesh with boundary conditions: inlet (red), outlet (blue), far-field (orange), symmetry (purple), wall (green).
 
-If you would like to run the flat plate problems for yourself, you can use the files available in the [SU2 V&V repository](https://github.com/su2code/VandV/tree/master/rans/flatplate). Configuration files for both the SA and SST cases, as well as all grids in SU2 format, are provided.
+If you would like to run the flat plate problems for yourself, you can use the files available in the [SU2 V&V repository](https://github.com/su2code/VandV/tree/master/rans/flatplate). Configuration files for both the SA and SST cases, as well as all grids in SU2 format, are provided. A Python script is also distributed in order to easily recreate the figures seen below from the data.
 
 ## Results
+
 The results for the mesh refinement study are presented and compared to results from FUN3D and CFL3D, including results for both the SA and SST turbulence models.
 
 We will compare the convergence of the drag coefficient on the flat plate with grid refinement, as well as the value of the skin friction coefficient at one point on the plate (x = 0.97). We also show the skin friction coefficient plotted along the length of the plate. All cases were converged until the density residual was reduced to 10<sup>-13</sup>, which is demonstrated by a figure containing residual convergence histories for each mesh.
 
+Both the SA and SST models exhibit excellent agreement in the figures below. With grid refinement, we see that both drag and skin friction values asymptote very close to those of FUN3D and CFL3D (and additional codes not shown here but displayed on the NASA TMR), which builds high confidence in the implementations of these two turbulence models in SU2.
+
 ### SA Model
 
-For the SA turbulence model, we see the following behavior compared to CFL3D and FUN3D.
-
-The following plots show mesh convergence properties of C_D and C_f at x = 0.97.
-
-![SA_cd_convergence](images/cd_convergence_flatplate_SA.png)
-Figure (2): Mesh convergence of C_D for different solvers
-
-![SA_cf_convergence](images/cf_convergence_flatplate_SA.png)
-Figure (3): Mesh convergence of C_f at x = 0.97 for different solvers
-
-The following plot shows the coefficient of friction along the flat plate as calculated on the finest mesh. All three solvers predict identical distributions, which is why is looks like one line. 
-
-![SA_cf](images/cf_flatplate_SA.png)
-Figure (4): C_f plot for the finest mesh for different solvers
-
+<p align="center">
+<img src="images/flatplate_cd_gridconv_sa.png" alt="Drag Grid Convergence SA" width="435"/>
+<img src="images/flatplate_cf_0p97_gridconv_sa.png" alt="Skin Friction Grid Convergence SA" width="435"/>
+<img src="images/flatplate_cf_profile_sa.png" alt="Skin Friction Profile SA" width="435"/>
+<img src="images/flatplate_residual_convergence_sa.png" alt="Residual Convergence SA" width="435"/>
+</p>
 
 ### SST Model
 
-For the SST turbulence model, we see the following behavior compared to CFL3D and FUN3D. 
-
-The following plots show mesh convergence properties of C_D and C_f at x = 0.97.
-
-![SST_cd_convergence](images/cd_convergence_flatplate_SST.png)
-Figure (2): Mesh convergence of C_D for different solvers
-
-![SST_cf_convergence](images/cf_convergence_flatplate_SST.png)
-Figure (3): Mesh convergence of C_f at x = 0.97 for different solvers
-
-
-The following plot shows the coefficient of friction along the flat plate as calculated on the finest mesh. All three solvers predict identical distributions, which is why is looks like one line. 
-
-![SST_cf](images/cf_flatplate_SST.png)
-Figure (4): C_f plot for the finest mesh for different solvers
+<p align="center">
+<img src="images/flatplate_cd_gridconv_sst.png" alt="Drag Grid Convergence SST" width="435"/>
+<img src="images/flatplate_cf_0p97_gridconv_sst.png" alt="Skin Friction Grid Convergence SST" width="435"/>
+<img src="images/flatplate_cf_profile_sst.png" alt="Skin Friction Profile SST" width="435"/>
+<img src="images/flatplate_residual_convergence_sst.png" alt="Residual Convergence SST" width="435"/>
+</p>
