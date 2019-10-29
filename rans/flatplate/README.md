@@ -1,5 +1,9 @@
 # Zero Pressure Gradient Flat Plate
 
+<p align="center">
+<img src="images/flatplate_cd_gridconv_sa.png" alt="Drag Grid Convergence SA" width="435"/>
+</p>
+
 The details of the Zero Pressure Gradient Flat Plate case are taken from the [NASA TMR website](https://turbmodels.larc.nasa.gov/flatplate.html). 
 
 By comparing the SU2 results of the flat plate case against CFL3D and FUN3D on a sequence of refined grids and seeing agreement of key quantities, we can build a high degree of confidence that the SA and SST models are implemented correctly. Therefore, the goal of this case is to verify the implementations of the SA and SST models in SU2.

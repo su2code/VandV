@@ -1,5 +1,9 @@
 # Method of Manufactured Solutions (MMS) for Compressible Navier-Stokes
 
+<p align="center">
+<img src="images/accuracy_rms_rho.png" alt="Accuracy RMS Rho" width="435"/>
+</p>
+
 This page contains the results of running MMS for the compressible Navier-Stokes system in order to formally verify the order-of-accuracy for the 2nd-order finite volume solver in SU2. These cases were completed with SU2 v7.0.0.
 
 For more details, please see the presentation on the subject from the [4th Annual SU2 Developers Meeting](https://su2foundation.org/wp-content/uploads/2019/05/SU2_Verification_EdwinTom.pdf). 
