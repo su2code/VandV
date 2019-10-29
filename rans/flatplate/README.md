@@ -18,7 +18,7 @@ The length of the flat plate is 2 meters, and it is represented by an adiabatic 
 
 ## Mesh Description
 
-Structured meshes of increasing density are used to perform a grid convergence study. The meshes are identical to those found on the [NASA TMR website](https://turbmodels.larc.nasa.gov/flatplate_grids.html) for this case after converting to native SU2 ASCII mesh format. These meshes are named according to the number of vertices in the x and y directions, respectively. The mesh sizes are: 
+Structured meshes of increasing density are used to perform a grid convergence study. The meshes are identical to the 2D versions found on the [NASA TMR website](https://turbmodels.larc.nasa.gov/flatplate_grids.html) for this case after converting to native SU2 ASCII mesh format. These meshes are named according to the number of vertices in the x and y directions, respectively. The mesh sizes are: 
 
 1. 35x25   - 816 quadrilaterals
 2. 69x49   - 3264 quadrilaterals
