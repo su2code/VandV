@@ -219,7 +219,6 @@ for j in range(len(fnames)):
       ax1.set_ylabel(result[i_s].columns.values[3], fontsize=8)
       ax1.set_xscale("log")
       ax1.tick_params(axis='both', labelsize=8)
-      # ax1.set_yscale("log")
       ax1.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
       ax1.set_title(result[i_s].columns.values[3])
       plt.tight_layout()
@@ -229,7 +228,6 @@ for j in range(len(fnames)):
       ax2.set_ylabel(result[i_s].columns.values[4], fontsize=8)
       ax2.set_xscale("log")
       ax2.tick_params(axis='both', labelsize=8)
-      # ax1.set_yscale("log")
       ax2.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
       ax2.set_title(result[i_s].columns.values[4])
       plt.tight_layout()
@@ -239,7 +237,6 @@ for j in range(len(fnames)):
       ax3.set_ylabel(result[i_s].columns.values[5], fontsize=8)
       ax3.set_xscale("log")
       ax3.tick_params(axis='both', labelsize=8)
-      # ax1.set_yscale("log")
       ax3.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
       ax3.set_title(result[i_s].columns.values[5])
       plt.tight_layout()
@@ -249,63 +246,62 @@ for j in range(len(fnames)):
       ax4.set_ylabel(result[i_s].columns.values[6], fontsize=8)
       ax4.set_xscale("log")
       ax4.tick_params(axis='both', labelsize=8)
-      # ax1.set_yscale("log")
       ax4.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
       ax4.set_title(result[i_s].columns.values[6])
       plt.tight_layout()
       
       i_s+=1
 
-# Plot the time series 
-m_ind = arange(0,len(tm)*len(ts)*len(fnames),len(ts))
+# # Plot the time series 
+# m_ind = arange(0,len(tm)*len(ts)*len(fnames),len(ts))
 
-ax1.cla()
-ax2.cla()
-ax3.cla()
-ax4.cla()
-for j in range(len(fnames)):
-  for k in range(len(tm)):
-    for i in m_ind:
-      ax1.plot(result[i].iloc[:, [0]], result[i].iloc[:, [3]], marker=symb[k],
-               color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
-      ax2.plot(result[i+1].iloc[:, [0]], result[i+1].iloc[:, [3]], marker=symb[k],
-               color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
-      ax3.plot(result[i+2].iloc[:, [0]], result[i+2].iloc[:, [3]], marker=symb[k],
-               color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
-      ax4.plot(result[i+3].iloc[:, [0]], result[i+3].iloc[:, [3]], marker=symb[k],
-               color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
+# ax1.cla()
+# ax2.cla()
+# ax3.cla()
+# ax4.cla()
+# for j in range(len(fnames)):
+#   for k in range(len(tm)):
+#     for i in m_ind:
+#       ax1.plot(result[i].iloc[:, [0]], result[i].iloc[:, [3]], marker=symb[k],
+#                color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
+#       ax2.plot(result[i+1].iloc[:, [0]], result[i+1].iloc[:, [3]], marker=symb[k],
+#                color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
+#       ax3.plot(result[i+2].iloc[:, [0]], result[i+2].iloc[:, [3]], marker=symb[k],
+#                color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
+#       ax4.plot(result[i+3].iloc[:, [0]], result[i+3].iloc[:, [3]], marker=symb[k],
+#                color=colo[j], linewidth=1.5, markersize=9, label=legends[j] + ": " + tm_labels[k])
 
-      ax1.set_xlabel("Time Iter", fontsize=8)
-      ax1.set_ylabel(result[i_s].columns.values[3], fontsize=8)
-      ax1.tick_params(axis='both', labelsize=8)
-      ax1.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
-      ax1.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[0]))
-      plt.tight_layout()
-      fig1.savefig((result[i_s].columns.values[3][9:12])+"_"+str(ts[0])+"_ts.png")
+#       ax1.set_xlabel("Time Iter", fontsize=8)
+#       ax1.set_ylabel(result[i_s].columns.values[3], fontsize=8)
+#       ax1.tick_params(axis='both', labelsize=8)
+#       ax1.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
+#       ax1.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[0]))
+#       plt.tight_layout()
+#       fig1.savefig((result[i_s].columns.values[3][9:12])+"_"+str(ts[0])+"_ts.png")
 
-      ax2.set_xlabel("Time Iter", fontsize=8)
-      ax2.set_ylabel(result[i_s].columns.values[3], fontsize=8)
-      ax2.tick_params(axis='both', labelsize=8)
-      ax2.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
-      ax2.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[1]))
-      plt.tight_layout()
-      fig2.savefig((result[i_s].columns.values[3][9:13]) +
-                   "_"+str(ts[1])+"_ts.png")
+#       ax2.set_xlabel("Time Iter", fontsize=8)
+#       ax2.set_ylabel(result[i_s].columns.values[3], fontsize=8)
+#       ax2.tick_params(axis='both', labelsize=8)
+#       ax2.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
+#       ax2.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[1]))
+#       plt.tight_layout()
+#       fig2.savefig((result[i_s].columns.values[3][9:13]) +
+#                    "_"+str(ts[1])+"_ts.png")
 
-      ax3.set_xlabel("Time Iter", fontsize=8)
-      ax3.set_ylabel(result[i_s].columns.values[3], fontsize=8)
-      ax3.tick_params(axis='both', labelsize=8)
-      ax3.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
-      ax3.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[2]))
-      plt.tight_layout()
-      fig3.savefig((result[i_s].columns.values[3][9:13]) +
-                   "_"+str(ts[2])+"_ts.png")
+#       ax3.set_xlabel("Time Iter", fontsize=8)
+#       ax3.set_ylabel(result[i_s].columns.values[3], fontsize=8)
+#       ax3.tick_params(axis='both', labelsize=8)
+#       ax3.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
+#       ax3.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[2]))
+#       plt.tight_layout()
+#       fig3.savefig((result[i_s].columns.values[3][9:13]) +
+#                    "_"+str(ts[2])+"_ts.png")
 
-      ax4.set_xlabel("Time Iter", fontsize=8)
-      ax4.set_ylabel(result[i_s].columns.values[3], fontsize=8)
-      ax4.tick_params(axis='both', labelsize=8)
-      ax4.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
-      ax4.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[3]))
-      plt.tight_layout()
-      fig4.savefig((result[i_s].columns.values[3][9:13]) +
-                   "_"+str(ts[3])+"_ts.png")
+#       ax4.set_xlabel("Time Iter", fontsize=8)
+#       ax4.set_ylabel(result[i_s].columns.values[3], fontsize=8)
+#       ax4.tick_params(axis='both', labelsize=8)
+#       ax4.legend(loc="center left", bbox_to_anchor=(.9, 0.5), prop={'size': 6})
+#       ax4.set_title(result[i_s].columns.values[3] + "TS: " + str(ts[3]))
+#       plt.tight_layout()
+#       fig4.savefig((result[i_s].columns.values[3][9:13]) +
+#                    "_"+str(ts[3])+"_ts.png")
