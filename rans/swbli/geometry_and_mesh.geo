@@ -1,8 +1,12 @@
 // Shock Boundary Layer Interaction
 //
+// Mesh sizing factor, the higher 'f', the finer the mesh.
 // L1 f=1, L2 f=1.41, L3 f=2
 f = 1.41;
 //
+// Params for the boundary layer (bl) mesh region along the top and bottom plates.
+// Size of the regions (*_h), and either number of points (n_*) or spacing (h_*) on the curves.
+// Points are concentrated in the region where shock-induced separation is expected (*_sh).
 bl_h_1 = 0.0025;
 n_bl_1 = 50*f+1;
 n_sh = 160*f+1;
@@ -30,6 +34,7 @@ Point(8) = {0.31844, bl_h_1, 0, h_top / 5};
 Point(9) = {0.37, bl_h_1, 0, h_top / 5};
 Point(10) = {0.523, bl_h_1, 0, h_top};
 //
+// Horizontal lines making up the bottom surface.
 Line(1) = {1, 19};
 Line(22) = {19, 2};
 Line(2) = {2, 3};
@@ -38,6 +43,7 @@ Line(4) = {4, 5};
 //
 Line(5) = {5, 10};
 //
+// Horizontal construction lines to define the inflation layer.
 Line(6) = {10, 9};
 Line(7) = {9, 8};
 Line(8) = {8, 7};
@@ -46,13 +52,14 @@ Line(9) = {21, 6};
 //
 Line(10) = {6, 1};
 //
+// Define the transfinite curves and surface for the bottom inflation layer.
 Curve Loop(1) = {9, 10, 1, 22, 2, 3, 4, 5, 6, 7, 8, 23};
 Plane Surface(1) = {1};
 Transfinite Curve {3, -7} = n_sh Using Bump 6;
 Transfinite Curve {-10, 5} = n_bl_1 Using Progression rate_1;
 Transfinite Surface {1} = {1, 5, 10, 6};
 //
-// Top
+// Top, same steps as bottom.
 Point(11) = {-0.01, 0.115, 0, h_top};
 Point(12) = {0.023, 0.115, 0, h_top / 4};
 Point(13) = {0.31844, 0.062906, 0, h_top};
@@ -81,13 +88,14 @@ Transfinite Curve {-16, 12} = 1.5*0.3 / h_top Using Progression (1.015 ^ (1/f));
 Transfinite Curve {18, -14} = n_bl_2 Using Progression rate_2;
 Transfinite Surface {2} = {15, 18, 14, 11};
 //
+// Interior part between inflation layers.
 Line(19) = {6, 15};
 Line(20) = {10, 18};
 Curve Loop(3) = {19, 11, 12, 13, -20, 6, 7, 8, 23, 9};
 Plane Surface(3) = {3};
 Transfinite Curve {19} = (0.115-bl_h_1-bl_h_2) / h_top Using Bump 0.25;
 //
-// Shock
+// Refinement around the main shock.
 Point(20) = {0.34, 0, 0, h_top / 5};
 Line(21) = {12, 20};
 Field[1] = Distance;
