@@ -48,11 +48,11 @@ from matplotlib import mlab
 my_dpi = 100
 
 # number or ranks to use
-nRank = 4
+nRank = 2
 
 # these are the commands for the SU2 and mesh generation runs
 # user can switch between quad and tria meshes by changing the script
-commands = ["mpirun -n %s SU2_CFD " % (nRank), "./create_grid_tria.py"]
+commands = ["mpirun -np %s SU2_CFD " % (nRank), "./create_grid_tria.py"]
 
 # SU2 config file name
 fnames = ["inv_mms_fds1.cfg","inv_mms_fds2.cfg","inv_mms_jst.cfg","inv_mms_lax.cfg"]
@@ -78,12 +78,12 @@ imgfrm = 'png'
 
 # brief error checking
 if len(commands) != 2 or len(fnames) != len(legends):
-  print "Check lengths of input lists for commands, configs, and legends."
+  print ("Check lengths of input lists for commands, configs, and legends.")
   raise SystemExit
 
 for iMesh in range(len(meshParam)-1):
   if (meshParam[iMesh+1]-1)/(meshParam[iMesh]-1) != 2:
-    print "Script requires mesh size N to increase by a factor of 2. Please check list of sizes."
+    print ("Script requires mesh size N to increase by a factor of 2. Please check list of sizes.")
     raise SystemExit
 
 # some extra labels for plotting
@@ -97,13 +97,13 @@ runs_dict = []
 h = zeros(len(meshParam)*len(fnames))
 
 # print initial statement about number of cases
-print "Running " + str(len(meshParam)*len(fnames)) + " MMS cases."
+print ("Running " + str(len(meshParam)*len(fnames)) + " MMS cases.")
 
 # loop over all meshes in the grid study
 for case in range(len(meshParam)*len(fnames)):
 
   # set the coorect number for iConfig
-  iConfig = case / len(meshParam)
+  iConfig = int(case / len(meshParam))
   
   # set the correct number for iMesh
   iMesh = case % len(meshParam)
@@ -152,13 +152,13 @@ for case in range(len(meshParam)*len(fnames)):
         if not found:
           runs_dict.append(result)
 
-  print "Case " + str(case+1) + " finished."
+  print ("Case " + str(case+1) + " finished.")
 
   # end loop over console output
 
 # end loop over grids
 
-print "Computing order of accuracy and creating figures."
+print ("Computing order of accuracy and creating figures.")
 
 # loop over all cases
 for ivar in range(len(variables)):
@@ -199,11 +199,11 @@ for ivar in range(len(variables)):
     ii += 1
 
   # print the observed order of accuracy
-  print "\n\nObserved order of accuracy for "+var+" equation\n"
-  print "h         RMS Order        Max Order"
-  print "------------------------------------"
+  print ("\n\nObserved order of accuracy for "+var+" equation\n")
+  print ("h         RMS Order        Max Order")
+  print ("------------------------------------")
   for val in range(len(elemsize)):
-    print str(elemsize[val])+"   "+str(orderrms[val])+"   "+str(ordermax[val])
+    print (str(elemsize[val])+"   "+str(orderrms[val])+"   "+str(ordermax[val]))
 
   # build slope 1 and slope 2 lines for comparison
   x2 = linspace(1e-1, 100.0, 20)
