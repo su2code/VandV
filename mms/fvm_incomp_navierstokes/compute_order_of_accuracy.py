@@ -48,11 +48,11 @@ from matplotlib import mlab
 my_dpi = 100
 
 # number or ranks to use
-nRank = 4
+nRank = 2
 
 # these are the commands for the SU2 and mesh generation runs
 # user can switch between quad and tria meshes by changing the script
-commands = ["mpirun -n %s SU2_CFD " % (nRank), "./create_grid_quad.py"]
+commands = ["mpirun -np %s SU2_CFD " % (nRank), "./create_grid_tria.py"]
 
 # SU2 config file name
 fnames = ["lam_mms_fds.cfg","lam_mms_fds_lim.cfg","lam_mms_wls.cfg","lam_mms_jst.cfg"]
@@ -78,12 +78,12 @@ imgfrm = 'png'
 
 # brief error checking
 if len(commands) != 2 or len(fnames) != len(legends):
-  print( "Check lengths of input lists for commands, configs, and legends.")
+  print("Check lengths of input lists for commands, configs, and legends.")
   raise SystemExit
 
 for iMesh in range(len(meshParam)-1):
   if (meshParam[iMesh+1]-1)/(meshParam[iMesh]-1) != 2:
-    print( "Script requires mesh size N to increase by a factor of 2. Please check list of sizes.")
+    print("Script requires mesh size N to increase by a factor of 2. Please check list of sizes.")
     raise SystemExit
 
 # some extra labels for plotting
@@ -97,14 +97,14 @@ runs_dict = []
 h = zeros(len(meshParam)*len(fnames))
 
 # print initial statement about number of cases
-print( "Running " + str(len(meshParam)*len(fnames)) + " MMS cases.")
+print("Running " + str(len(meshParam)*len(fnames)) + " MMS cases.")
 
 # loop over all meshes in the grid study
 for case in range(len(meshParam)*len(fnames)):
 
   # set the coorect number for iConfig
-  iConfig = case / len(meshParam)
-  
+  iConfig = int(case / len(meshParam))
+
   # set the correct number for iMesh
   iMesh = case % len(meshParam)
   
@@ -118,7 +118,7 @@ for case in range(len(meshParam)*len(fnames)):
   sp.call(commandGrid,shell=True)
 
   # build the SU2 command
-  commandSU2 = commands[0]+fnames[int(iConfig)]+" > "+filename
+  commandSU2 = commands[0]+fnames[iConfig]+" > "+filename
 
   # call SU2 to run the calculation
   sp.call(commandSU2,shell=True)
@@ -152,7 +152,7 @@ for case in range(len(meshParam)*len(fnames)):
         if not found:
           runs_dict.append(result)
 
-  print( "Case " + str(case+1) + " finished.")
+  print ("Case " + str(case+1) + " finished.")
 
   # end loop over console output
 
