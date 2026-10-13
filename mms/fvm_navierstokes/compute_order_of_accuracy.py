@@ -48,11 +48,12 @@ from matplotlib import mlab
 my_dpi = 100
 
 # number or ranks to use
-nRank = 4
+nRank = 2
 
 # these are the commands for the SU2 and mesh generation runs
 # user can switch between quad and tria meshes by changing the script
-commands = ["mpirun -n %s SU2_CFD " % (nRank), "./create_grid_quad.py"]
+commands = ["mpirun -np %s SU2_CFD " % (nRank), "./create_grid_tria.py"]
+# commands = ["SU2_CFD ./create_grid_quad.py"]
 
 # SU2 config file name
 fnames = ["lam_mms_roe.cfg","lam_mms_roe_lim.cfg","lam_mms_roe_wls.cfg","lam_mms_jst.cfg"]
@@ -103,7 +104,7 @@ print("Running " + str(len(meshParam)*len(fnames)) + " MMS cases.")
 for case in range(len(meshParam)*len(fnames)):
 
   # set the coorect number for iConfig
-  iConfig = case / len(meshParam)
+  iConfig = int(case / len(meshParam))
   
   # set the correct number for iMesh
   iMesh = case % len(meshParam)
@@ -118,7 +119,7 @@ for case in range(len(meshParam)*len(fnames)):
   sp.call(commandGrid,shell=True)
 
   # build the SU2 command
-  commandSU2 = commands[0]+fnames[int(iConfig)]+" > "+filename
+  commandSU2 = commands[0]+fnames[iConfig]+" > "+filename
 
   # call SU2 to run the calculation
   sp.call(commandSU2,shell=True)
@@ -153,7 +154,7 @@ for case in range(len(meshParam)*len(fnames)):
           runs_dict.append(result)
 
   print ("Case " + str(case+1) + " finished.")
-
+  
   # end loop over console output
 
 # end loop over grids
